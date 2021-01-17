@@ -18,4 +18,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/transaction', [TransactionController::class, 'index']);
+// // transaction index
+// Route::get('/transaction', [TransactionController::class, 'index']);
+// // input transaction
+// Route::post('/transaction', [TransactionController::class, 'store']);
+// Route::put('/transaction/{id}', [TransactionController::class, 'update']);
+// Route::get('/transaction/{id}', [TransactionController::class, 'show']);
+// Route::delete('/transaction/{id}', [TransactionController::class, 'destroy']);
+
+Route::resource('transaction', TransactionController::class)->except('create', 'edit');
